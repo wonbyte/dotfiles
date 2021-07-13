@@ -17,5 +17,6 @@ return require('packer').startup(function()
   use 'stephpy/vim-yaml'
   use 'rust-lang/rust.vim'
   use 'plasticboy/vim-markdown'
+  use 'kevinoid/vim-jsonc'
 
 end)
