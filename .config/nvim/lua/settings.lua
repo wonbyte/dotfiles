@@ -41,12 +41,8 @@ set expandtab smarttab shiftround autoindent smartindent smartcase
 set path+=**
 set wildmenu
 set wildmode=longest,list,full
-set wildignore+=*.pyc
-set wildignore+=*_build/*
 set wildignore+=**/coverage/*
 set wildignore+=**/node_modules/*
-set wildignore+=**/android/*
-set wildignore+=**/ios/*
 set wildignore+=**/.git/*
 ]]
 
