@@ -111,10 +111,10 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: "Fira Code"
+    family: Iosevka
 
     # The `style` can be specified to pick a specific face.
-    style: Retina
+    style: Light
 
   # Bold font face
   bold:
@@ -122,10 +122,10 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: "Fira Code"
+    family: Iosevka
 
     # The `style` can be specified to pick a specific face.
-    style: Bold
+    style: Medium
 
   # Italic font face
   italic:
@@ -133,10 +133,10 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Menlo
+    family: Iosevka
 
     # The `style` can be specified to pick a specific face.
-    style: Italic
+    style: "Light Italic"
 
   # Bold italic font face
   #bold_italic:
@@ -170,7 +170,7 @@ font:
   #
   # Thin strokes are suitable for retina displays, but for non-retina screens
   # it is recommended to set `use_thin_strokes` to `false`.
-  #use_thin_strokes: true
+  use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
