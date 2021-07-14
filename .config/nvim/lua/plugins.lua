@@ -13,10 +13,10 @@ return require('packer').startup(function()
   use 'morhetz/gruvbox'
 
   -- syntactic language support
+  use 'rust-lang/rust.vim'
+  use 'kevinoid/vim-jsonc'
+  use 'plasticboy/vim-markdown'
   use 'cespare/vim-toml'
   use 'stephpy/vim-yaml'
-  use 'rust-lang/rust.vim'
-  use 'plasticboy/vim-markdown'
-  use 'kevinoid/vim-jsonc'
 
 end)
