@@ -74,6 +74,7 @@ nvim_lsp.rust_analyzer.setup({
 
 -- Sumneko Lua LSP
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#sumneko_lua
+--
 local system_name
 if vim.fn.has("mac") == 1 then
     system_name = "macOS"
