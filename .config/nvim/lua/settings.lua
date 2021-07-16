@@ -1,42 +1,89 @@
 local utils = require('utils')
 
-local cmd = vim.cmd
-local o = vim.o
-local wo = vim.wo
-local bo = vim.bo
-local indent = 4
+vim.cmd 'syntax enable'
+vim.cmd 'filetype plugin indent on'
 
-cmd 'syntax enable'
-cmd 'filetype plugin indent on'
+-- Show relative line numbers
+vim.wo.number = true
+vim.wo.relativenumber = true
 
-bo.shiftwidth = indent
-bo.tabstop = indent
-bo.softtabstop = indent
-bo.swapfile = false
-o.backup = false
-o.clipboard = 'unnamedplus'
-o.cmdheight = 2
-o.hidden = true
-o.ignorecase = true
-o.inccommand = "split"
-o.incsearch = true
-o.scrolloff = 4
-o.showmode = false -- lightline alreadys shows it
-o.shortmess = 'c' -- coc vim recommended
-o.smartcase = true
-o.splitbelow = true
-o.splitright = true
-o.termguicolors = true
-o.timeoutlen = 300
-o.updatetime = 300
-o.writebackup = false
-wo.number = true
-wo.relativenumber = true
-wo.scrolloff = 4
-wo.signcolumn = 'number'
-wo.cursorline = true
+-- Show cursor at line
+vim.wo.cursorline = true
 
-cmd [[
+-- Handle spaces and indents
+vim.bo.shiftwidth = 4
+vim.bo.tabstop = 4
+vim.bo.softtabstop = 4
+
+-- Keep some room around cursor
+vim.o.scrolloff = 4
+vim.wo.scrolloff = 4
+
+-- Make cmd line little taller
+vim.o.cmdheight = 2
+
+-- Don't need backups when git
+vim.bo.swapfile = false
+vim.o.backup = false
+vim.o.writebackup = false
+
+-- Incremental live completion
+vim.o.inccommand = 'nosplit'
+
+-- Make line numbers default
+vim.wo.number = true
+
+-- Do not save when switching buffers
+vim.o.hidden = true
+
+-- Enable break indent
+vim.o.breakindent = true
+
+-- Case insensitive searching UNLESS /C or capital in search
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+-- Decrease update time
+vim.o.updatetime = 250
+vim.wo.signcolumn = 'yes'
+
+-- Set colorscheme (order is important here)
+-- vim.o.termguicolors = true
+-- vim.g.onedark_terminal_italics = 2
+-- vim.cmd [[colorscheme onedark]]
+
+-- Enable system clipboard
+vim.o.clipboard = 'unnamedplus'
+
+-- Set statusbar
+vim.g.lightline = {
+    active = {
+        left = {
+            {'mode', 'paste'}, {'gitbranch', 'readonly', 'filename', 'modified'}
+        }
+    },
+    component_function = {gitbranch = 'fugitive#head'}
+}
+
+-- Remap space as leader key
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', {noremap = true, silent = true})
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+-- Remap for dealing with word wrap
+vim.api.nvim_set_keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'",
+                        {noremap = true, expr = true, silent = true})
+vim.api.nvim_set_keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'",
+                        {noremap = true, expr = true, silent = true})
+
+-- Map blankline
+vim.g.indent_blankline_char = '┊'
+vim.g.indent_blankline_filetype_exclude = {'help', 'packer'}
+vim.g.indent_blankline_buftype_exclude = {'terminal', 'nofile'}
+vim.g.indent_blankline_char_highlight = 'LineNr'
+vim.g.indent_blankline_show_trailing_blankline_indent = false
+
+vim.cmd [[
 set expandtab smarttab shiftround autoindent smartindent smartcase
 set path+=**
 set wildmenu
@@ -46,11 +93,19 @@ set wildignore+=**/node_modules/*
 set wildignore+=**/.git/*
 ]]
 
--- highlight on yank
-cmd 'au TextYankPost * silent! lua vim.highlight.on_yank()'
+-- Highlight on yank
+vim.api.nvim_exec([[
+  augroup YankHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+  augroup end
+]], false)
+
+-- Y yank until the end of line
+vim.api.nvim_set_keymap('n', 'Y', 'y$', {noremap = true})
 
 -- set list characters
-cmd 'set listchars=nbsp:¬,eol:¶,extends:»,precedes:«,trail:•'
+vim.cmd 'set listchars=nbsp:¬,eol:¶,extends:»,precedes:«,trail:•'
 
 -- remove extra whitespace
 vim.api.nvim_exec([[
@@ -61,3 +116,21 @@ vim.api.nvim_exec([[
     endfun
     autocmd FileType rust,html,typescript,javascript,python autocmd BufWritePre <buffer> call TrimWhitespace()
 ]], false)
+
+-- Toggle to disable mouse mode and indentlines for easier paste
+ToggleMouse = function()
+    if vim.o.mouse == 'a' then
+        vim.wo.signcolumn = 'no'
+        vim.o.mouse = 'v'
+        vim.wo.number = false
+        print("Mouse disabled")
+    else
+        vim.wo.signcolumn = 'yes'
+        vim.o.mouse = 'a'
+        vim.wo.number = true
+        print("Mouse enabled")
+    end
+end
+
+vim.api.nvim_set_keymap('n', '<F10>', '<cmd>lua ToggleMouse()<cr>',
+                        {noremap = true})

@@ -69,10 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["coc.nvim"] = {
-    loaded = true,
-    path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/coc.nvim"
-  },
   gruvbox = {
     loaded = true,
     path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/gruvbox"
@@ -81,13 +77,57 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/lightline.vim"
   },
+  ["lspsaga.nvim"] = {
+    loaded = true,
+    path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
+  },
+  neoformat = {
+    loaded = true,
+    path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/neoformat"
+  },
+  ["nvim-compe"] = {
+    loaded = true,
+    path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/nvim-compe"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+  },
+  ["nvim-treesitter-textobjects"] = {
+    loaded = true,
+    path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects"
+  },
+  ["onedark.vim"] = {
+    loaded = true,
+    path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/onedark.vim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+  },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/popup.nvim"
+  },
   ["rust.vim"] = {
     loaded = true,
     path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/rust.vim"
+  },
+  ["telescope-fzy-native.nvim"] = {
+    loaded = true,
+    path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   ["vim-jsonc"] = {
     loaded = true,
@@ -101,9 +141,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/vim-toml"
   },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/vim-vsnip"
+  },
   ["vim-yaml"] = {
     loaded = true,
     path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/vim-yaml"
+  },
+  ["vscode-rust"] = {
+    loaded = true,
+    path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/vscode-rust"
   }
 }
 

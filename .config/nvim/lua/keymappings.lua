@@ -4,7 +4,7 @@ local utils = require('utils')
 utils.map('n', '<C-h>', '<cmd>noh<CR>')
 
 -- jk to escape
-utils.map('i', 'jk', '<Esc>') 
+utils.map('i', 'jk', '<Esc>')
 
 -- <leader>, shows/hides hidden characters
 utils.map('n', '<Space>,', ':set invlist<CR>')
