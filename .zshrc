@@ -15,3 +15,5 @@ alias vi="nvim"
 
 export VAULT_ADDR=https://prod.vault.conde.io:443
 
+
+alias luamake=/Users/gsierans/.cache/nvim/lspconfig/sumneko_lua/lua-language-server/3rd/luamake/luamake
