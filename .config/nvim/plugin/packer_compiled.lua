@@ -77,6 +77,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/lightline.vim"
   },
+  ["lsp-colors.nvim"] = {
+    loaded = true,
+    path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim"
+  },
   ["lspsaga.nvim"] = {
     loaded = true,
     path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
@@ -100,10 +104,6 @@ _G.packer_plugins = {
   ["nvim-treesitter-textobjects"] = {
     loaded = true,
     path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects"
-  },
-  ["onedark.vim"] = {
-    loaded = true,
-    path = "/Users/gsierans/.local/share/nvim/site/pack/packer/start/onedark.vim"
   },
   ["packer.nvim"] = {
     loaded = true,

@@ -32,8 +32,8 @@ return require('packer').startup(function()
     -- A Tree view for Symbols
     -- use 'simrat39/symbols-outline.nvim'
 
-    -- Theme inspired by Atom
-    use 'joshdick/onedark.vim'
+    -- LSP Color support
+    use 'folke/lsp-colors.nvim'
 
     -- Gruvbox Theme
     use 'morhetz/gruvbox'
