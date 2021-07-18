@@ -1,4 +1,4 @@
-return require('packer').startup(function()
+return require('packer').startup(function(use)
 
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
@@ -26,6 +26,15 @@ return require('packer').startup(function()
         }
     }
 
+    -- Tokyo Night
+    use 'folke/tokyonight.nvim'
+
+    -- Fancier status line
+    use {
+        'hoob3rt/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
+
     -- Neoformat
     use 'sbdchd/neoformat'
 
@@ -34,12 +43,6 @@ return require('packer').startup(function()
 
     -- LSP Color support
     use 'folke/lsp-colors.nvim'
-
-    -- Gruvbox Theme
-    use 'morhetz/gruvbox'
-
-    -- Fancier status line
-    use 'itchyny/lightline.vim'
 
     -- Snippets
     use {'hrsh7th/vim-vsnip', requires = {'rust-lang/vscode-rust'}}

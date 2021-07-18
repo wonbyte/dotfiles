@@ -1,10 +1,3 @@
-lua << EOF
-
-local saga = require 'lspsaga'
-saga.init_lsp_saga()
-
-EOF
-
 " lsp provider to find the cursor word definition and reference
 nnoremap <silent><leader>gh :Lspsaga lsp_finder<CR>
 

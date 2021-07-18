@@ -1,5 +1,3 @@
-local utils = require('utils')
-
 vim.cmd 'syntax enable'
 vim.cmd 'filetype plugin indent on'
 
@@ -47,23 +45,8 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
--- Set colorscheme (order is important here)
--- vim.o.termguicolors = true
--- vim.g.onedark_terminal_italics = 2
--- vim.cmd [[colorscheme onedark]]
-
 -- Enable system clipboard
 vim.o.clipboard = 'unnamedplus'
-
--- Set statusbar
-vim.g.lightline = {
-    active = {
-        left = {
-            {'mode', 'paste'}, {'gitbranch', 'readonly', 'filename', 'modified'}
-        }
-    },
-    component_function = {gitbranch = 'fugitive#head'}
-}
 
 -- Remap space as leader key
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', {noremap = true, silent = true})

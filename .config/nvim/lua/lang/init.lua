@@ -63,18 +63,10 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 nvim_lsp.rust_analyzer.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    settings = {
-        ["rust-analyzer"] = {
-            assist = {importGranularity = "module", importPrefix = "by_self"},
-            cargo = {allFeatures = true},
-            procMacro = {enable = true}
-        }
-    }
+    settings = {["rust-analyzer"] = {cargo = {allFeatures = true}}}
 })
 
--- Sumneko Lua LSP
--- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#sumneko_lua
---
+-- Lua LSP Server
 local system_name
 if vim.fn.has("mac") == 1 then
     system_name = "macOS"
@@ -86,7 +78,7 @@ else
     print("Unsupported system for sumneko")
 end
 
--- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
+-- set the path to the sumneko installation: it defualts to ~/.cache/nvim/lspconfig/sumneko_lua
 local sumneko_root_path = vim.fn.stdpath('cache') ..
                               '/lspconfig/sumneko_lua/lua-language-server'
 local sumneko_binary = sumneko_root_path .. "/bin/" .. system_name ..
