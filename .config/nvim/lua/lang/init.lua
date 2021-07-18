@@ -62,9 +62,16 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 
 nvim_lsp.rust_analyzer.setup({
     on_attach = on_attach,
+    flags = {debounce_text_changes = 150},
     capabilities = capabilities,
     settings = {["rust-analyzer"] = {cargo = {allFeatures = true}}}
 })
+
+-- taken from john gjengset
+-- https://github.com/neovim/neovim/blob/master/runtime/doc/lsp.txt#L274
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
+                 {virtual_text = true, signs = true, update_in_insert = true})
 
 -- Lua LSP Server
 local system_name
