@@ -10,10 +10,11 @@ antigen init ~/.antigenrc
 
 alias clr="clear"
 alias config='/usr/local/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
-alias hist="history 1 | less"
+alias hist="history | less"
+alias v="nvim"
 alias vi="nvim"
+alias vim="nvim"
 
 export VAULT_ADDR=https://prod.vault.conde.io:443
-
 
 alias luamake=/Users/gsierans/.cache/nvim/lspconfig/sumneko_lua/lua-language-server/3rd/luamake/luamake
