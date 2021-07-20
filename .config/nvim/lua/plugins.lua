@@ -20,10 +20,7 @@ return require('packer').startup(function(use)
     -- UI to select things (files, grep results, open buffers...
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {
-            {'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'},
-            {'nvim-telescope/telescope-fzy-native.nvim'}
-        }
+        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
 
     -- Tokyo Night
